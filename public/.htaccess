@@ -2,9 +2,9 @@
     RewriteEngine On
 
     # !!! این خط را مطابق با نام پوشه پروژه‌تان در htdocs/www تنظیم کنید !!!
-    # مثال: اگر پوشه پروژه شما "my_wallet_app" است و در htdocs قرار دارد، بنویسید: /my_wallet_app/public/
+    # مثال: اگر پوشه پروژه شما "blockchain-master" است و در htdocs قرار دارد، بنویسید: /blockchain-master/public/
     # اگر از Virtual Host استفاده میکنید و ریشه پروژه تان public است، بنویسید: /
-    RewriteBase /نام_پوشه_پروژه_شما/public/
+    RewriteBase /blockchain-master/public/ # <--- Make sure this matches your folder name!
 
     # اگر درخواست مربوط به یک فایل واقعی بود، آن را رد کنید (به PHP نفرستید)
     RewriteCond %{REQUEST_FILENAME} !-f

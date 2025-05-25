@@ -44,6 +44,9 @@ $router = new Router();
 // مسیر ریشه سایت (صفحه لندینگ)
 $router->get('/', 'index.php');
 
+
+
+
 // مسیر صفحه ورود
 $router->get('/login', 'auth/login.php');
 
