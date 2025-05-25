@@ -1,32 +1,3 @@
-
-<?php
-
-// Define the root path of the project (one level up from public)
-define('ROOT_PATH', dirname(__DIR__));
-
-// Include the bootstrap file which handles autoloading and routing setup
-require ROOT_PATH . '/app/bootstrap.php';
-
-// Get the requested URI (e.g., /login, /register, /)
-$uri = $_SERVER['REQUEST_URI'];
-$public_path = '/public'; // !!! This MUST match your RewriteBase in .htaccess
-
-// Remove the public_path prefix if it exists
-if (strpos($uri, $public_path) === 0) {
-    $uri = substr($uri, strlen($public_path));
-}
-// If the URI is empty after removing the prefix, set it to '/'
-if (empty($uri)) {
-    $uri = '/';
-}
-
-// Get the HTTP method (GET, POST, etc.)
-$method = $_SERVER['REQUEST_METHOD'];
-
-// Direct the request using the router
-$router->direct($uri, $method);
-
-?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -53,8 +24,8 @@ $router->direct($uri, $method);
                 </ul>
             </nav>
             <div class="auth-buttons">
-                <a href="/login" class="btn btn-secondary">ورود</a>
-                <a href="/register" class="btn btn-primary">ثبت‌نام</a>
+                <a href="/blockchain/public/login" class="btn btn-secondary">ورود</a>
+                <a href="/blockchain/public/register" class="btn btn-primary">ثبت‌نام</a>
             </div>
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
@@ -67,7 +38,7 @@ $router->direct($uri, $method);
             <div class="hero-content">
                 <h1>آزادی مالی در دستان شما: انتقال تتر و بیت‌کوین، امن و آسان.</h1>
                 <p>کیف پول ارز دیجیتال **Non-Custodial**. کنترل کامل بر دارایی‌هایتان، بدون نیاز به ذخیره‌سازی کلید خصوصی در سرور.</p>
-                <a href="/register" class="btn btn-primary btn-large">همین حالا شروع کنید</a>
+                <a href="/blockchain/public/register" class="btn btn-primary btn-large">همین حالا شروع کنید</a>
             </div>
             <div class="hero-image">
                 <img src="assets/images/hero-illustration.svg" alt="Digital Wallet Illustration">
@@ -142,7 +113,7 @@ $router->direct($uri, $method);
     <section class="cta-section">
         <div class="container">
             <h2>همین امروز کنترل مالی خود را به دست بگیرید!</h2>
-            <a href="/register" class="btn btn-primary btn-large">ثبت‌نام کنید</a>
+            <a href="register" class="btn btn-primary btn-large">ثبت‌نام کنید</a>
         </div>
     </section>
 

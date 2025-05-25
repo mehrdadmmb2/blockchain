@@ -32,18 +32,35 @@
     </header>
 
     <main>
-        <section class="auth-section">
+    <section class="auth-section">
             <div class="form-container">
                 <h2>ثبت‌نام</h2>
+                <?php
+                // Display flash messages
+                $errors = \App\Core\Session::getFlash('errors');
+                $success = \App\Core\Session::getFlash('success');
+                $old_input = \App\Core\Session::getFlash('old_input') ?? [];
+
+                if ($success) {
+                    echo '<div class="alert success">' . htmlspecialchars($success) . '</div>';
+                }
+                if ($errors) {
+                    echo '<div class="alert error"><ul>';
+                    foreach ($errors as $error) {
+                        echo '<li>' . htmlspecialchars($error) . '</li>';
+                    }
+                    echo '</ul></div>';
+                }
+                ?>
                 <form id="registerForm" action="/register" method="POST">
                     <div class="form-group">
                         <label for="username">نام کاربری:</label>
-                        <input type="text" id="username" name="username" required>
+                        <input type="text" id="username" name="username" required value="<?php echo htmlspecialchars($old_input['username'] ?? ''); ?>">
                         <div class="error-message" id="usernameError"></div>
                     </div>
                     <div class="form-group">
                         <label for="email">ایمیل:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required value="<?php echo htmlspecialchars($old_input['email'] ?? ''); ?>">
                         <div class="error-message" id="emailError"></div>
                     </div>
                     <div class="form-group">
